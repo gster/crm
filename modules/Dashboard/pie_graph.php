@@ -39,7 +39,7 @@ function pie_chart($referdata,$refer_code,$width,$height,$left,$right,$top,$bott
 	{
 		$name=$datax[$i];
 		$pos = substr_count($name," ");
-		$alts[]=htmlentities($name)."=%d";
+		$alts[]=htmlentities($name,ENT_QUOTES,'UTF-8')."=%d";
 		//If the datax value of a string is greater, adding '\n' to it so that it'll come in 2nd line
 		if(strlen($name)>=14)
 			$name=substr($name, 0, 34);

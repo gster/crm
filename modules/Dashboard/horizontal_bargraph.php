@@ -40,7 +40,7 @@ function horizontal_graph($referdata,$refer_code,$width,$height,$left,$right,$to
 	{
 		$name=$datax[$i];
 		$pos = substr_count($name," ");
-		$alts[]=htmlentities($name)."=%d";
+		$alts[]=htmlentities($name,ENT_QUOTES,'UTF-8');
 //If the daatx value of a string is greater, adding '\n' to it so that it'll cme inh 2nd line
 		 if(strlen($name)>=14)
                         $name=substr($name, 0, 44);
