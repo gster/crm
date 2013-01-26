@@ -5,7 +5,7 @@
 				<tr>
 					<td width="25%" rowspan="2"><img width="61" height="60" src="{'empty.jpg'|@vtiger_imageurl:$THEME}"/></td>
 					<td width="75%" nowrap="nowrap" style="border-bottom: 1px solid rgb(204, 204, 204);">
-						<span class="genHeaderSmall">{$APP.LBL_NO} {$module->label} {$APP.LBL_FOUND}</span>
+						<span class="genHeaderSmall">{$module->label}:{$APP.LBL_RECORD_NOT_FOUND}</span>
 					</td>
 				</tr>
 				<tr>

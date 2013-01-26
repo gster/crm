@@ -69,9 +69,9 @@
                                         <td rowspan="2" width="25%"><img src="{'empty.jpg'|@vtiger_imageurl:$THEME}" height="60" width="61%"></td>
                                         {if $recid_var_value neq '' && $mod_var_value neq '' && $RECORD_COUNTS eq 0 }
 					<script>redirectWhenNoRelatedRecordsFound();</script>
-                                        <td style="border-bottom: 1px solid rgb(204, 204, 204);" nowrap="nowrap" width="75%"><span class="genHeaderSmall">{$APP.LBL_NO} {$MODULE|@getTranslatedString:$MODULE} {$APP.RELATED} !</td>
+                                        <td style="border-bottom: 1px solid rgb(204, 204, 204);" nowrap="nowrap" width="75%"><span class="genHeaderSmall">{$MODULE|@getTranslatedString:$MODULE}: {$APP.LBL_RECORD_NOT_FOUND}!</td>
                                         {else}
-                                        <td style="border-bottom: 1px solid rgb(204, 204, 204);" nowrap="nowrap" width="75%"><span class="genHeaderSmall">{$APP.LBL_NO} {$MODULE|@getTranslatedString:$MODULE} {$APP.LBL_FOUND} !</td>
+                                        <td style="border-bottom: 1px solid rgb(204, 204, 204);" nowrap="nowrap" width="75%"><span class="genHeaderSmall">{$MODULE|@getTranslatedString:$MODULE}:{$APP.LBL_RECORD_NOT_FOUND}!</td>
                                         {/if}
                                 </tr>
                         </table>
