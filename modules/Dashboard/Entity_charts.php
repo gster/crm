@@ -661,10 +661,12 @@ function get_graph($cache_file_name,$html_imagename,$cnt_val,$name_val,$width,$h
 	if(isset($_REQUEST['display_view']) && $_REQUEST['display_view'] == 'MATRIX')
 	{
 		$sHTML .="<tr><td width=50%><table width=100%  border=0 cellspacing=0 cellpadding=0 align=left>"; 
-	}
-
-$sHTML .= "<tr>
-	   <td><a name='1'></a><table width=20%  border=0 cellspacing=12 cellpadding=0 align=left>
+	} 
+	$sHTML.="<table width=\"100%\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">
+							<tr><td>"; 
+      $sHTML .= "<tr>
+	   <td><a name='1'></a>
+	   <table width=20%  border=0 cellspacing=12 cellpadding=0 align=left>
 	         <tr>
 	    	   <td rowspan=2 valign=top><span class=\"dash_count\">1</span></td>
 	           <td nowrap><span class=genHeaderSmall>".$display_title."</span></td>
@@ -775,6 +777,7 @@ if(isset($_REQUEST['display_view']) && $_REQUEST['display_view'] == 'MATRIX')
 }
 $sHTML .= "<tr><td colspan='2' class='dash_chart_btm'>&nbsp;</td></tr>";
 
+$sHTML.="</td></tr></table>";
 
 return $sHTML;
 }

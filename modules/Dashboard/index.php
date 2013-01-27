@@ -41,27 +41,27 @@ $graph_array = Array(
 	  "salesbyuser" => $mod_strings['salesbyuser'],
 	  "salesbyteam" => $mod_strings['salesbyteam'],
           "accountindustry" => $mod_strings['accountindustry'],
-          "productcategory" => $mod_strings['productcategory'],
-	  "productbyqtyinstock" => $mod_strings['productbyqtyinstock'],
-	  "productbypo" => $mod_strings['productbypo'],
-	  "productbyquotes" => $mod_strings['productbyquotes'],
-	  "productbyinvoice" => $mod_strings['productbyinvoice'],
-          "sobyaccounts" => $mod_strings['sobyaccounts'],
-          "sobystatus" => $mod_strings['sobystatus'],
-          "pobystatus" => $mod_strings['pobystatus'],
-          "quotesbyaccounts" => $mod_strings['quotesbyaccounts'],
-          "quotesbystage" => $mod_strings['quotesbystage'],
-          "invoicebyacnts" => $mod_strings['invoicebyacnts'],
-          "invoicebystatus" => $mod_strings['invoicebystatus'],
-          "ticketsbystatus" => $mod_strings['ticketsbystatus'],
-          "ticketsbypriority" => $mod_strings['ticketsbypriority'],
-	  "ticketsbycategory" => $mod_strings['ticketsbycategory'], 
-	  "ticketsbyuser" => $mod_strings['ticketsbyuser'],
-	  "ticketsbyteam" => $mod_strings['ticketsbyteam'],
-	  "ticketsbyproduct"=> $mod_strings['ticketsbyproduct'],
-	  "contactbycampaign"=> $mod_strings['contactbycampaign'],
-	  "ticketsbyaccount"=> $mod_strings['ticketsbyaccount'],
-	  "ticketsbycontact"=> $mod_strings['ticketsbycontact'],
+       //   "productcategory" => $mod_strings['productcategory'],
+	 // "productbyqtyinstock" => $mod_strings['productbyqtyinstock'],
+	 // "productbypo" => $mod_strings['productbypo'],
+	  // "productbyquotes" => $mod_strings['productbyquotes'],
+	  // "productbyinvoice" => $mod_strings['productbyinvoice'],
+   //        "sobyaccounts" => $mod_strings['sobyaccounts'],
+   //        "sobystatus" => $mod_strings['sobystatus'],
+   //        "pobystatus" => $mod_strings['pobystatus'],
+   //        "quotesbyaccounts" => $mod_strings['quotesbyaccounts'],
+   //        "quotesbystage" => $mod_strings['quotesbystage'],
+   //        "invoicebyacnts" => $mod_strings['invoicebyacnts'],
+   //        "invoicebystatus" => $mod_strings['invoicebystatus'],
+   //        "ticketsbystatus" => $mod_strings['ticketsbystatus'],
+   //        "ticketsbypriority" => $mod_strings['ticketsbypriority'],
+	  // "ticketsbycategory" => $mod_strings['ticketsbycategory'], 
+	  // "ticketsbyuser" => $mod_strings['ticketsbyuser'],
+	  // "ticketsbyteam" => $mod_strings['ticketsbyteam'],
+	  // "ticketsbyproduct"=> $mod_strings['ticketsbyproduct'],
+	   "contactbycampaign"=> $mod_strings['contactbycampaign'],
+	  // "ticketsbyaccount"=> $mod_strings['ticketsbyaccount'],
+	  // "ticketsbycontact"=> $mod_strings['ticketsbycontact'],
           );
           
 $log = LoggerManager::getLogger('dashboard');
@@ -212,7 +212,7 @@ if($CHAT_DISPLAY == 'true') {
 							<td width="90%" nowrap>
 							<?php echo $app_strings['Dashboard']; ?> &gt; <?php echo $app_strings['Home'];?> &gt; <span id="dashTitle_div"><?php echo $dash_board_title; ?></span>
 							</td>
-							<td align="right" width="10%"><img alt="<?php echo $mod_strings['NORMALVIEW'];?>" title="<?php echo $mod_strings['NORMALVIEW'];?>" style="cursor:pointer;" onClick="changeView('NORMAL');" src="<?php echo $image_path;?>dboardNormalView.gif" align="absmiddle" border="0">&nbsp;|&nbsp;<img alt="<?php echo $mod_strings['GRIDVIEW'];?>" title="<?php echo $mod_strings['GRIDVIEW'];?>" style="cursor:pointer;" onClick="changeView('MATRIX');" src="<?php echo $image_path;?>dboardMatrixView.gif" align="absmiddle" border="0"></td>
+					<!-- 		<td align="right" width="10%"><img alt="<?php echo $mod_strings['NORMALVIEW'];?>" title="<?php echo $mod_strings['NORMALVIEW'];?>" style="cursor:pointer;" onClick="changeView('NORMAL');" src="<?php echo $image_path;?>dboardNormalView.gif" align="absmiddle" border="0">&nbsp;|&nbsp;<img alt="<?php echo $mod_strings['GRIDVIEW'];?>" title="<?php echo $mod_strings['GRIDVIEW'];?>" style="cursor:pointer;" onClick="changeView('MATRIX');" src="<?php echo $image_path;?>dboardMatrixView.gif" align="absmiddle" border="0"></td> -->
 						</tr>
 						</table>
 						</td>
@@ -225,7 +225,6 @@ if($CHAT_DISPLAY == 'true') {
 							<!-- NAVIGATION TABLE -->
 							<table width="100%" border="0" cellpadding="0" cellspacing="0">
 								<tr>
-
 									<td width="45%" align="right">&nbsp;
 									</td>
 								</tr>
@@ -235,7 +234,7 @@ if($CHAT_DISPLAY == 'true') {
 							<!-- CHART ONE TABLE -->
 							<table width="100%" border="0" cellpadding="0" cellspacing="0">
 							<tr>
-								<td height="300">
+								<td>
 								
 								<?php 
 									if(!isset($_REQUEST['type']))

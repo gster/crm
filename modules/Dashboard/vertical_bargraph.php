@@ -80,7 +80,7 @@ function vertical_graph($referdata,$refer_code,$width,$height,$left,$right,$top,
 	$graph =& Image_Graph::factory('graph', $canvas);
 	$font =& $graph->addNew('font', calculate_font_name($lang_crm));
 	// set the font size to 12
-	$font->setSize(8);
+	$font->setSize(12);
 
 	if($theme == "blue")
 	{
@@ -93,7 +93,7 @@ function vertical_graph($referdata,$refer_code,$width,$height,$left,$right,$top,
 	$font->setColor($font_color);
 		
 	$graph->setFont($font);
-	$titlestr =& Image_Graph::factory('title', array($title,10));
+	$titlestr =& Image_Graph::factory('title', array($title,15));
    	$plotarea =& Image_Graph::factory('plotarea',array(
 				'axis',
 				'axis',
@@ -152,7 +152,7 @@ function vertical_graph($referdata,$refer_code,$width,$height,$left,$right,$top,
 	// Setup X-axis
 	$xaxis =& $plotarea->getAxis(IMAGE_GRAPH_AXIS_X);
 	$yaxis =& $plotarea->getAxis(IMAGE_GRAPH_AXIS_Y);
-	$yaxis->setFontSize(10);
+	$yaxis->setFontSize(12);
 			
 	// set grid
 	$gridY =& $plotarea->addNew('line_grid', IMAGE_GRAPH_AXIS_Y);

@@ -39,7 +39,7 @@ function pie_chart($referdata,$refer_code,$width,$height,$left,$right,$top,$bott
 	{
 		$name=$datax[$i];
 		$pos = substr_count($name," ");
-		$alts[]=htmlentities($name,ENT_QUOTES,'UTF-8')."=%d";
+		$alts[]=htmlentities($name,ENT_QUOTES,'UTF-8');
 		//If the datax value of a string is greater, adding '\n' to it so that it'll come in 2nd line
 		if(strlen($name)>=14)
 			$name=substr($name, 0, 34);
@@ -83,12 +83,12 @@ function pie_chart($referdata,$refer_code,$width,$height,$left,$right,$top,$bott
 	$graph =& Image_Graph::factory('graph', $canvas);
 	$font =& $graph->addNew('font', calculate_font_name($lang_crm));
 	// set the font size to 11 pixels
-	$font->setSize(8);
+	$font->setSize(12);
 	$font->setColor($font_color);
 		
 	$graph->setFont($font);
 	// create the plotarea layout
-    $title =& Image_Graph::factory('title', array($title,10));
+    $title =& Image_Graph::factory('title', array($title,15));
    	$plotarea =& Image_Graph::factory('plotarea',array(
                   'category',
                   'axis'
@@ -164,7 +164,7 @@ function pie_chart($referdata,$refer_code,$width,$height,$left,$right,$top,$bott
 	$marker->setFillColor('#FFFFFF');
 	$marker->setBorderColor($font_color);
 	$marker->setFontColor($font_color);
-	$marker->setFontSize(8);
+	$marker->setFontSize(10);
 	$pointingMarker =& $graph->addNew('Image_Graph_Marker_Pointing_Angular', array(20, &$marker));
 	$gbplot->setMarker($pointingMarker);
 			

@@ -77,7 +77,7 @@ function horizontal_graph($referdata,$refer_code,$width,$height,$left,$right,$to
 	$graph =& Image_Graph::factory('graph', $canvas);
 	$font =& $graph->addNew('font', calculate_font_name($lang_crm));
 	// set the font size to 12
-	$font->setSize(8);
+	$font->setSize(12);
 
 	if($theme == "blue")
 	{
@@ -90,7 +90,7 @@ function horizontal_graph($referdata,$refer_code,$width,$height,$left,$right,$to
 	$font->setColor($font_color);
 		
 	$graph->setFont($font);
-	$titlestr =& Image_Graph::factory('title', array($title,8));
+	$titlestr =& Image_Graph::factory('title', array($title,15));
    	$plotarea =& Image_Graph::factory('plotarea',array(
 				'axis',
 				'axis',
@@ -180,7 +180,7 @@ function horizontal_graph($referdata,$refer_code,$width,$height,$left,$right,$to
 	// Setup X-axis
 	$xaxis =& $plotarea->getAxis(IMAGE_GRAPH_AXIS_X);
 	$yaxis =& $plotarea->getAxis(IMAGE_GRAPH_AXIS_Y);
-	$yaxis->setFontSize(10);
+	$yaxis->setFontSize(12);
 	
 	// Invert X-axis and put Y-axis at bottom
 	$xaxis->setInverted(true);

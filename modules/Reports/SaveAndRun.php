@@ -91,32 +91,33 @@ if($numOfRows > 0) {
 			require_once 'include/ChartUtils.php';
 
 			$groupBy = $oReportRun->getGroupingList($reportid);
-			if(!empty($groupBy)){
-				foreach ($groupBy as $key => $value) {
-					//$groupByConditon = explode(" ",$value);
-					//$groupByNew = explode("'",$groupByConditon[0]);
-					list($tablename,$colname,$module_field,$fieldname,$single) = split(":",$key);
-					list($module,$field)= split("_",$module_field);
-					$fieldDetails = $key;
-					break;
-				}
-				//$groupByField = $oReportRun->GetFirstSortByField($reportid);
-				$queryReports = CustomReportUtils::getCustomReportsQuery($Report_ID,$filtersql);
-				$queryResult = $adb->pquery($queryReports,array());
-				//ChartUtils::generateChartDataFromReports($queryResult, strtolower($groupByNew[1]));
-                if($adb->num_rows($queryResult)){
-					$pieChart = ChartUtils::getReportPieChart($queryResult, strtolower($module_field),$fieldDetails,$reportid);
-					$barChart = ChartUtils::getReportBarChart($queryResult, strtolower($module_field),$fieldDetails,$reportid);
-					$list_report_form->assign("PIECHART",$pieChart);
-					$list_report_form->assign("BARCHART",$barChart);
-				}
-				else{
-					$showCharts = false;
-				}
-			}
-			else{
-				$showCharts = false;
-			}
+			// if(!empty($groupBy)){
+			// 	foreach ($groupBy as $key => $value) {
+			// 		//$groupByConditon = explode(" ",$value);
+			// 		//$groupByNew = explode("'",$groupByConditon[0]);
+			// 		list($tablename,$colname,$module_field,$fieldname,$single) = split(":",$key);
+			// 		list($module,$field)= split("_",$module_field);
+			// 		$fieldDetails = $key;
+			// 		break;
+			// 	}
+			// 	//$groupByField = $oReportRun->GetFirstSortByField($reportid);
+			// 	$queryReports = CustomReportUtils::getCustomReportsQuery($Report_ID,$filtersql);
+			// 	$queryResult = $adb->pquery($queryReports,array());
+			// 	//ChartUtils::generateChartDataFromReports($queryResult, strtolower($groupByNew[1]));
+   //              if($adb->num_rows($queryResult)){
+			// 		$pieChart = ChartUtils::getReportPieChart($queryResult, strtolower($module_field),$fieldDetails,$reportid);
+			// 		$barChart = ChartUtils::getReportBarChart($queryResult, strtolower($module_field),$fieldDetails,$reportid);
+			// 		$list_report_form->assign("PIECHART",$pieChart);
+			// 		$list_report_form->assign("BARCHART",$barChart);
+			// 	}
+			// 	else{
+			// 		$showCharts = false;
+			// 	}
+			// }
+			// else{
+			// 	$showCharts = false;
+			// }
+			$showCharts = false;
 			$list_report_form->assign("SHOWCHARTS",$showCharts);
 		}
 		//Monolithic Changes Ends

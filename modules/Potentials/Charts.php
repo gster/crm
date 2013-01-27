@@ -53,16 +53,16 @@ class jpgraph {
 		// add a TrueType font
 		$font =& $graph->addNew('font', calculate_font_name($lang_crm));
 		// set the font size to 11 pixels
-		$font->setSize(8);
+		$font->setSize(12);
 		
 		$graph->setFont($font);
 		// create the plotarea layout
-        $title =& Image_Graph::factory('title', array('Title',10));
+        $title =& Image_Graph::factory('title', array('Title',15));
     	$plotarea =& Image_Graph::factory('plotarea',array(
                     'axis',
                     'axis'
                 ));
-        $footer =& Image_Graph::factory('title', array('Footer',8));
+        $footer =& Image_Graph::factory('title', array('Footer',10));
 		$graph->add(
 		    Image_Graph::vertical($title,
 	        Image_Graph::vertical(
@@ -133,7 +133,7 @@ class jpgraph {
 
 							$count[$month][$sales_stage][$record->column_fields['assigned_user_id']] = 1;
 						}
-						$total = $total + ($amount/1000);
+						$total = $total + ($amount/10000);
 					}
 				}
 			}
@@ -167,7 +167,7 @@ class jpgraph {
 						}
 
 						if (isset($sum[$month][$stage][$the_id])) {
-							array_push($datax[$stage][$the_id], $sum[$month][$stage][$the_id]/1000);
+							array_push($datax[$stage][$the_id], $sum[$month][$stage][$the_id]/10000);
 							array_push($aAlts[$stage][$the_id], $the_user.' - '.$count[$month][$stage][$the_id]." ".$current_module_strings['LBL_OPPS_OUTCOME']." $stage");
 						}
 						else {
@@ -265,7 +265,8 @@ class jpgraph {
 			$gbplot->setBackground(Image_Graph::factory('gradient', array(IMAGE_GRAPH_GRAD_VERTICAL, 'white', '#E5E5E5')));
 
 			// Setup title
-			$titlestr = $current_module_strings['LBL_TOTAL_PIPELINE'].$current_user->currency_symbol.$total.$app_strings['LBL_THOUSANDS_SYMBOL'];
+			//$titlestr = $current_module_strings['LBL_TOTAL_PIPELINE'].$current_user->currency_symbol.$total.$app_strings['LBL_THOUSANDS_SYMBOL'];
+			$titlestr = $current_module_strings['LBL_TOTAL_PIPELINE'].$current_user->currency_symbol.$total.'万';
 				//$titlestr = $current_module_strings['LBL_TOTAL_PIPELINE'].$current_user->currency_symbol.$total;
 			
 			$title->setText($titlestr);
@@ -303,7 +304,7 @@ class jpgraph {
 
 			// Then fix the tick marks
 			$valueproc =& Image_Graph::factory('Image_Graph_DataPreprocessor_Formatted', $current_user->currency_symbol."%d");
-			$yaxis->setFontSize(8);
+			$yaxis->setFontSize(12);
 			$yaxis->setDataPreprocessor($valueproc);
 			// Arrange Y-Axis tick marks inside
 			$yaxis->setLabelInterval($ticks[0]);
@@ -324,10 +325,12 @@ class jpgraph {
 			$marker->setFillColor('000000@0.0');
 			$marker->setBorderColor('000000@0.0');
 			$marker->setFontColor('white');
-			$marker->setFontSize(8);
+			$marker->setFontSize(10);
 			$gbplot->setMarker($marker);
 
-			$subtitle .= $current_module_strings['LBL_OPP_SIZE'].$current_user->currency_symbol.$current_module_strings['LBL_OPP_SIZE_VALUE'];
+			//$subtitle .= $current_module_strings['LBL_OPP_SIZE'].$current_user->currency_symbol.$current_module_strings['LBL_OPP_SIZE_VALUE'];
+			$subtitle .='单位：万';
+			$subtitle .='   ';
 			$footer->setText($subtitle);
 			$footer->setAlignment(IMAGE_GRAPH_ALIGN_TOP_RIGHT);
 
@@ -384,17 +387,17 @@ class jpgraph {
 		// add a TrueType font
 		$font =& $graph->addNew('font', calculate_font_name($lang_crm));
 		// set the font size to 11 pixels
-		$font->setSize(8);
+		$font->setSize(12);
 		
 		$graph->setFont($font);
 		// create the plotarea layout
-        $title =& Image_Graph::factory('title', array('Test',10));
+        $title =& Image_Graph::factory('title', array('Test',15));
     	$plotarea =& Image_Graph::factory('plotarea',array(
                     'axis',
                     'axis',
                     'horizontal'
                 ));
-        $footer =& Image_Graph::factory('title', array('Footer',8));
+        $footer =& Image_Graph::factory('title', array('Footer',10));
 		$graph->add(
 		    Image_Graph::vertical($title,
 	        Image_Graph::vertical(
@@ -468,7 +471,7 @@ class jpgraph {
 						else {
 							$count[$lead_source][$sales_stage][$record->column_fields['assigned_user_id']] = 1;
 						}
-						$total = $total + ($amount/1000);
+						$total = $total + ($amount/10000);
 					}
 				}
 			}
@@ -498,7 +501,7 @@ class jpgraph {
 						}
 	
 						if (isset($sum[$lead][$stage][$the_id])) {
-							array_push($datax[$stage][$the_id], $sum[$lead][$stage][$the_id]/1000);
+							array_push($datax[$stage][$the_id], $sum[$lead][$stage][$the_id]/10000);
 							array_push($aAlts[$stage][$the_id], $the_user.' - '.$count[$lead][$stage][$the_id]." ".$current_module_strings['LBL_OPPS_OUTCOME']." $stage");
 						}
 						else {
@@ -598,7 +601,8 @@ class jpgraph {
 			$gbplot->setBackground(Image_Graph::factory('gradient', array(IMAGE_GRAPH_GRAD_HORIZONTAL, 'white', '#E5E5E5')));
 
 			// Setup title
-			$titlestr = $current_module_strings['LBL_ALL_OPPORTUNITIES'].$current_user->currency_symbol.$total.$app_strings['LBL_THOUSANDS_SYMBOL'];
+			//$titlestr = $current_module_strings['LBL_ALL_OPPORTUNITIES'].$current_user->currency_symbol.$total.$app_strings['LBL_THOUSANDS_SYMBOL'];
+			$titlestr = $current_module_strings['LBL_ALL_OPPORTUNITIES'].$current_user->currency_symbol.$total.'万';
 			//$titlestr = $current_module_strings['LBL_ALL_OPPORTUNITIES'].$current_user->currency_symbol.$total;
 			$title->setText($titlestr);
 
@@ -629,7 +633,7 @@ class jpgraph {
 			$ticks = get_tickspacing($maximum);
 
 			// Then fix the tick marks
-			$yaxis->setFontSize(8);
+			$yaxis->setFontSize(12);
 			$yaxis->setAxisIntersection('max');
 			$valueproc =& Image_Graph::factory('Image_Graph_DataPreprocessor_Formatted', $current_user->currency_symbol."%d");
 			$yaxis->setDataPreprocessor($valueproc);
@@ -647,11 +651,12 @@ class jpgraph {
 			$marker->setFillColor('#000000@0.0');
 			$marker->setBorderColor('#000000@0.0');
 			$marker->setFontColor('white');
-			$marker->setFontSize(8);
+			$marker->setFontSize(10);
 			$gbplot->setMarker($marker);
 
 			// Finally setup the title
-			$subtitle = $current_module_strings['LBL_OPP_SIZE'].$current_user->currency_symbol.$current_module_strings['LBL_OPP_SIZE_VALUE']; 
+			//$subtitle = $current_module_strings['LBL_OPP_SIZE'].$current_user->currency_symbol.$current_module_strings['LBL_OPP_SIZE_VALUE']; 
+			$subtitle='单位：万 ';
 			$footer->setText($subtitle);
 			$footer->setAlignment(IMAGE_GRAPH_ALIGN_TOP_RIGHT);
 
@@ -705,16 +710,16 @@ class jpgraph {
 		//$font =& $graph->addNew('font', calculate_font_name($lang_crm));
 		$font =& $graph->addNew('font', calculate_font_name($lang_crm));
 		// set the font size to 11 pixels
-		$font->setSize(8);
+		$font->setSize(12);
 		
 		$graph->setFont($font);
-        $title =& Image_Graph::factory('title', array('Test',10));
+        $title =& Image_Graph::factory('title', array('Test',15));
     	$plotarea =& Image_Graph::factory('plotarea',array(
                     'axis',
                     'axis',
                     'horizontal'
                 ));
-        $footer =& Image_Graph::factory('title', array('Footer',8));
+        $footer =& Image_Graph::factory('title', array('Footer',10));
 		$graph->add(
 		    Image_Graph::vertical($title,
 	        Image_Graph::vertical(
@@ -781,7 +786,7 @@ class jpgraph {
 						else {
 							$count[$record->column_fields['sales_stage']][$record->column_fields['assigned_user_id']] = 1;
 						}
-						$total = $total + ($amount/1000);
+						$total = $total + ($amount/10000);
 					}
 				}
 			}
@@ -804,7 +809,7 @@ class jpgraph {
 				}
 
 				if (isset($sum[$stage_key][$the_id])) {
-					array_push($datay[$the_id], $sum[$stage_key][$the_id]/1000);
+					array_push($datay[$the_id], $sum[$stage_key][$the_id]/10000);
 					array_push($aAlts[$the_id], $the_user.' - '.$count[$stage_key][$the_id]." ".$current_module_strings['LBL_OPPS_IN_STAGE']." $stage_translation");
 				}
 				else {
@@ -896,7 +901,8 @@ class jpgraph {
 			$font->setColor($font_color);
 
 			// Setup title
-			$titlestr = $current_module_strings['LBL_TOTAL_PIPELINE'].$current_user->currency_symbol.$total.$app_strings['LBL_THOUSANDS_SYMBOL'];
+			//$titlestr = $current_module_strings['LBL_TOTAL_PIPELINE'].$current_user->currency_symbol.$total.$app_strings['LBL_THOUSANDS_SYMBOL'];
+			$titlestr = $current_module_strings['LBL_TOTAL_PIPELINE'].$current_user->currency_symbol.$total.'万';
 			//$titlestr = $current_module_strings['LBL_TOTAL_PIPELINE'].$current_user->currency_symbol.$total;
 			$title->setText($titlestr);
 
@@ -919,7 +925,7 @@ class jpgraph {
 
 			// Setup Y-axis
 			$yaxis =& $plotarea->getAxis(IMAGE_GRAPH_AXIS_Y);
-			$yaxis->setFontSize(8);
+			$yaxis->setFontSize(12);
 			$yaxis->setAxisIntersection('max');
 
 			// Add some grace to y-axis so the bars doesn't go
@@ -948,12 +954,13 @@ class jpgraph {
 			$marker->setFillColor('000000@0.0');
 			$marker->setBorderColor('000000@0.0');
 			$marker->setFontColor('white');
-			$marker->setFontSize(8);
+			$marker->setFontSize(10);
 			$gbplot->setMarker($marker);
 
 			// Finally setup the title
 
-			$subtitle .= $current_module_strings['LBL_OPP_SIZE'].$current_user->currency_symbol.$current_module_strings['LBL_OPP_SIZE_VALUE']; 
+			//$subtitle .= $current_module_strings['LBL_OPP_SIZE'].$current_user->currency_symbol.$current_module_strings['LBL_OPP_SIZE_VALUE']; 
+			$subtitle .= '单位：万';
 			$footer->setText($subtitle);
 			$footer->setAlignment(IMAGE_GRAPH_ALIGN_TOP_RIGHT);
 
@@ -1037,10 +1044,10 @@ class jpgraph {
 					if (isset($record->column_fields['amount']) && isset($record->column_fields['leadsource']))	{
 						// Strip all non numbers from this string.
 						$amount = convertFromMasterCurrency(preg_replace('/[^0-9]/', '', floor($record->column_fields['amount'])),$current_user->conv_rate);
-						$sum[$record->column_fields['leadsource']] = $sum[$record->column_fields['leadsource']] + ($amount/1000);
+						$sum[$record->column_fields['leadsource']] = $sum[$record->column_fields['leadsource']] + ($amount/10000);
 						if (isset($count[$record->column_fields['leadsource']])) $count[$record->column_fields['leadsource']]++;
 						else $count[$record->column_fields['leadsource']] = 1;
-						$total = $total + ($amount/1000);
+						$total = $total + ($amount/10000);
 					}
 				}
 			}
@@ -1094,17 +1101,17 @@ $log->debug("Exiting pipeline_by_lead_source method ...");
 	
 			$font =& $graph->addNew('font', calculate_font_name($lang_crm));
 			// set the font size to 11 pixels
-			$font->setSize(8);
+			$font->setSize(12);
 			$font->setColor($font_color);
 			
 			$graph->setFont($font);
 			// create the plotarea layout
-	        $title =& Image_Graph::factory('title', array('Test',10));
+	        $title =& Image_Graph::factory('title', array('Test',15));
 	    	$plotarea =& Image_Graph::factory('plotarea',array(
                     'category',
                     'axis'
                 ));
-	        $footer =& Image_Graph::factory('title', array('Footer',8));
+	        $footer =& Image_Graph::factory('title', array('Footer',10));
 			$graph->add(
 			    Image_Graph::vertical($title,
 		        Image_Graph::vertical(
@@ -1142,7 +1149,8 @@ $log->debug("Exiting pipeline_by_lead_source method ...");
 			$gbplot->setFillStyle($fills);
 
 			// Setup title
-			$titlestr = $current_module_strings['LBL_TOTAL_PIPELINE'].$current_user->currency_symbol.$total.$app_strings['LBL_THOUSANDS_SYMBOL'];
+			//$titlestr = $current_module_strings['LBL_TOTAL_PIPELINE'].$current_user->currency_symbol.$total.$app_strings['LBL_THOUSANDS_SYMBOL'];
+			$titlestr = $current_module_strings['LBL_TOTAL_PIPELINE'].$current_user->currency_symbol.$total.'万';
 			//$titlestr = $current_module_strings['LBL_TOTAL_PIPELINE'].$current_user->currency_symbol.$total;
 
 			$title->setText($titlestr);
@@ -1156,7 +1164,7 @@ $log->debug("Exiting pipeline_by_lead_source method ...");
 			$marker->setFillColor('#FFFFFF');
 			$marker->setBorderColor($font_color);
 			$marker->setFontColor($font_color);
-			$marker->setFontSize(8);
+			$marker->setFontSize(10);
 			$pointingMarker =& $graph->addNew('Image_Graph_Marker_Pointing_Angular', array(20, &$marker));
 			$gbplot->setMarker($pointingMarker);
 			
@@ -1166,7 +1174,8 @@ $log->debug("Exiting pipeline_by_lead_source method ...");
 			$legend_box->setFillColor('#F5F5F5');
 			$legend_box->showShadow();
 
-			$subtitle = $current_module_strings['LBL_OPP_SIZE'].$current_user->currency_symbol.$current_module_strings['LBL_OPP_SIZE_VALUE'];
+			//$subtitle = $current_module_strings['LBL_OPP_SIZE'].$current_user->currency_symbol.$current_module_strings['LBL_OPP_SIZE_VALUE'];
+			$subtitle ='单位：万  ';
 			$footer->setText($subtitle);
 			$footer->setAlignment(IMAGE_GRAPH_ALIGN_TOP_LEFT);
 
