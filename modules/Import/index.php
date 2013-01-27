@@ -13,8 +13,7 @@ require_once 'modules/Import/controllers/Import_Index_Controller.php';
 require_once 'modules/Import/controllers/Import_ListView_Controller.php';
 require_once 'modules/Import/controllers/Import_Controller.php';
 
-global $current_user;
-
+global $current_user; 
 $previousBulkSaveMode = $VTIGER_BULK_SAVE_MODE;
 $VTIGER_BULK_SAVE_MODE = true;
 

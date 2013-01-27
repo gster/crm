@@ -90,7 +90,7 @@ $mod_strings = Array(
 	'csv' => 'CSV',
 	'vcf' => 'VCard',
 	
-/*****************5.3.0以前版本	
+/*****************5.3.0以前版本	*/
  'LBL_IMPORT_MODULE_NO_DIRECTORY' => '文件夹 ',
   'LBL_IMPORT_MODULE_NO_DIRECTORY_END' => ' 不存在或是无法写入',
   'LBL_IMPORT_MODULE_ERROR_NO_UPLOAD' => '文件上传失败，请再重试',
@@ -264,7 +264,7 @@ $mod_strings = Array(
 'Customer Portal Login Details' => '客户门户登录详细信息',    
 );
 
-/*$mod_list_strings = Array(
+ /*$mod_list_strings = Array(
 	"id"=>"Contact ID"
 	,"first_name"=>"First Name"
 	,"last_name"=>"Last Name"
@@ -306,7 +306,7 @@ $mod_strings = Array(
 	,"alt_address_country"=>"Other Address Country"
 	,"description"=>"Description"
 
-	),*/
+	), */
 $mod_list_strings = Array(
 'contacts_import_fields' => Array(
 	//"id"=>"Contact ID"

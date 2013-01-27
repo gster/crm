@@ -18,7 +18,8 @@ class Import_UI_Viewer {
 	}
 	
 	function viewController() {
-		global $theme;
+
+		global $theme,$current_user;
 		$themePath = "themes/".$theme."/";
 		$imagePath = $themePath."images/";
 
@@ -31,7 +32,7 @@ class Import_UI_Viewer {
 		$smarty->assign('MODULE', 'Import');
 		$smarty->assign('THEME', $theme);
 		$smarty->assign('IMAGE_PATH', $imagePath);
-
+        $smarty->assign("MOD", return_module_language($current_user->language,'Import'));
 		return $smarty;
 	}
 	
