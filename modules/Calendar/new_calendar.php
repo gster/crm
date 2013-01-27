@@ -57,23 +57,18 @@ if (isset($_REQUEST['year']) && is_numeric(vtlib_purify($_REQUEST['year']))) {
 	$date_data['year'] = vtlib_purify($_REQUEST['year']);
 }
 
-
-if(empty($date_data)) {
-	$dateTimeField = new DateTimeField('');
-	$dateValue = $dateTimeField->getDisplayDate();
-	$timeValue = $dateTimeField->getDisplayTime();
-	$dbDateValue = DateTimeField::convertToDBFormat($dateValue);
-	$dateValueArray = explode('-', $dbDateValue);
-	$timeValueArray = explode(':', $timeValue);
+if(empty($date_data)){
+	$data_value=date('Y-m-d H:i:s');
+	preg_match('/(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}):(\d{2})/',$data_value,$value);
 	$date_data = Array(
-		'day'=>$dateValueArray[2],
-		'month'=>$dateValueArray[1],
-		'year'=>$dateValueArray[0],
-		'hour'=>$timeValueArray[0],
-		'min'=>$timeValueArray[1],
-	);	
-}
-
+		'day'=>$value[3],
+		'month'=>$value[2],
+		'year'=>$value[1],
+		'hour'=>$value[4],
+		'min'=>$value[5],
+	);
+	
+} 
 $calendar_arr['calendar'] = new Calendar($mysel,$date_data);
 if($current_user->hour_format != '') 
 	$calendar_arr['calendar']->hour_format=$current_user->hour_format;

@@ -116,7 +116,7 @@ function getKeyMetrics($maxval,$calCnt)
 		foreach($metriclists as $metriclist)
 		{
 			$value=array();
-			$CVname = (strlen($metriclist['name']) > 20) ? (substr($metriclist['name'],0,20).'...') : $metriclist['name'];
+			$CVname = (strlen($metriclist['name'],'utf-8') > 20) ? (mb_substr($metriclist['name'],0,20,'utf-8').'...') : $metriclist['name'];
 			$value[]='<a href="index.php?action=ListView&module='.$metriclist['module'].'&viewname='.$metriclist['id'].'">'.$CVname . '</a> <font style="color:#6E6E6E;">('. $metriclist['user'] .')</font>';
 			$value[]='<a href="index.php?action=ListView&module='.$metriclist['module'].'&viewname='.$metriclist['id'].'">'.getTranslatedString($metriclist['module']). '</a>';
 			$value[]='<a href="index.php?action=ListView&module='.$metriclist['module'].'&viewname='.$metriclist['id'].'">'.$metriclist['count'].'</a>';

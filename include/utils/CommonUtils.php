@@ -1338,14 +1338,14 @@ function updateInfo($id) {
 	$result = $adb->pquery($query, array($id));
 	$modifiedtime = $adb->query_result($result, 0, 'modifiedtime');
 	$modifiedby_id = $adb->query_result($result, 0, 'modifiedby');
-	$modifiedby = $app_strings['LBL_BY'] . getOwnerName($modifiedby_id);
+	$modifiedby = '<br>修改人： '. getOwnerName($modifiedby_id);
 	$date = new DateTimeField($modifiedtime);
 	$modifiedtime = DateTimeField::convertToDBFormat($date->getDisplayDate());
 	$current_time = date('Y-m-d H:i:s');
 	$values = explode(' ', $modifiedtime);
 	$date_info = explode('-', $values[0]);
 	$time_info = explode(':', $values[1]);
-	$date = $date_info[2] . ' ' . $app_strings[date("M", mktime(0, 0, 0, $date_info[1], $date_info[2], $date_info[0]))] . ' ' . $date_info[0];
+	$date = $date_info[0] . '/' . $date_info[1] . '/' . $date_info[2];
 	$time_modified = strtotime($modifiedtime);
 	$time_now = strtotime($current_time);
 	$days_diff = (int) (($time_now - $time_modified) / (60 * 60 * 24));

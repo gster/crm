@@ -97,7 +97,7 @@ function getTopAccounts($maxval,$calCnt)
 				'AMOUNT' => ($account['amount']),
 				);
 
-		$Top_Accounts = (strlen($account['accountname']) > 20) ? (substr($account['accountname'],0,20).'...') : $account['accountname'];
+		$Top_Accounts = (strlen($account['accountname'],'utf-8') > 20) ? (mb_substr($account['accountname'],0,20,'utf-8').'...') : $account['accountname'];
 		$value[]='<a href="index.php?action=DetailView&module=Accounts&record='.$account['accountid'].'">'.$Top_Accounts.'</a>';
 		$value[] = CurrencyField::convertToUserFormat($account['amount']);
 		$entries[$account['accountid']]=$value;	

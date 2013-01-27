@@ -459,9 +459,9 @@ function display_date($view,$date_time)
 	if ($view == 'day')
         {
 		//$label = $date_time->getdayofWeek()." ";
-		$label = $date_time->get_Date()." ";
-		$label .= $date_time->getmonthName()." ";
-		$label .= $date_time->year;
+		$label = $date_time->year."/";
+		$label .= $date_time->month."/";
+		$label .= $date_time->day;
 		$cal_log->debug("Exiting display_date() method...");
 		return $label;
         }
@@ -469,21 +469,21 @@ function display_date($view,$date_time)
         {
                 $week_start = $date_time->getThisweekDaysbyIndex(1);
                 $week_end = $date_time->getThisweekDaysbyIndex(7);
-                $label = $week_start->get_Date()." ";
-                $label .= $week_start->getmonthName()." ";
-                $label .= $week_start->year;
+                $label = $week_start->year."/";
+                $label .= $week_start->month."/";
+                $label .= $week_start->day;
                 $label .= " - ";
-                $label .= $week_end->get_Date()." ";
-                $label .= $week_end->getmonthName()." ";
-                $label .= $week_end->year;
+                $label .= $week_end->year."/";
+                $label .= $week_end->month."/";
+                $label .= $week_end->day;
 		$cal_log->debug("Exiting display_date() method...");
 		return $label;
         }
 
 	elseif ($view == 'month')
 	{
-		$label = $date_time->getmonthName()." ";
-		$label .= $date_time->year;
+		$label = $date_time->year."/";
+		$label .= $date_time->month;
 		$cal_log->debug("Exiting display_date() method...");
 		return $label;
         }
