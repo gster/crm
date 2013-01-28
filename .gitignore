@@ -2,3 +2,4 @@
 cache/
 Smarty/templates_c/
 Smarty/cache/
+*.~

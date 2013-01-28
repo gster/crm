@@ -3082,8 +3082,9 @@ class ReportRun extends CRMEntity
 		$totalxls = $this->GenerateReport("TOTALXLS",$filterlist);
 
 		if(isset($arr_val)) {
+			 $count=0;
 			foreach($arr_val[0] as $key=>$value) {
-				$worksheet->write(0, $count, $key , $header);
+				$worksheet->write(0, $count,iconv("UTF-8", "GBK", $key), $header);
 				$count = $count + 1;
 			}
 			$rowcount=1;
@@ -3092,7 +3093,7 @@ class ReportRun extends CRMEntity
 				foreach($array_value as $hdr=>$value) {
 					//$worksheet->write($key+1, $dcount, iconv("UTF-8", "ISO-8859-1", $value));
 					$value = decode_html($value);
-					$worksheet->write($key+1, $dcount, utf8_decode($value));
+					$worksheet->write($key+1, $dcount, iconv("UTF-8", "GBK", $value));
 					$dcount = $dcount + 1;
 				}
 				$rowcount++;
@@ -3116,7 +3117,7 @@ class ReportRun extends CRMEntity
 					//if ($dcount==1)
 					//		$worksheet->write($key+$rowcount, 0, utf8_decode(substr($hdr,0,strlen($hdr)-4)));
 					$value = decode_html($value);
-					$worksheet->write($key+$rowcount, $dcount, utf8_decode($value));
+					$worksheet->write($key+$rowcount, $dcount, iconv("UTF-8", "GBK", $value));
 					$dcount = $dcount + 1;
 				}
 			}

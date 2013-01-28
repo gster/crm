@@ -295,7 +295,7 @@ else
 	header( "Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT" );
 	header( "Cache-Control: post-check=0, pre-check=0", false );
 	header( "Content-Length: ".strlen($content)); 
-	print $content;
+	print iconv("UTF-8", "gbk", $content);
 	exit ();
 	
 }
