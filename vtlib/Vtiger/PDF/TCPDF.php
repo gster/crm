@@ -73,6 +73,7 @@ class Vtiger_PDF_TCPDF extends TCPDF {
 		if ($size == 0) {
 			$size = $this->FontSizePt;
 		}
+		$family = 'stsongstdlight';
 		// try to add font (if not already added)
 		$fontdata =  $this->AddFont($family, $style);
 		$this->FontFamily = $fontdata['family'];

@@ -1915,6 +1915,7 @@ if (!class_exists('TCPDF', false)) {
 				}
 				default: {
 					$this->PageMode = 'UseNone';
+
 				}
 			}
 		}
@@ -3064,6 +3065,7 @@ if (!class_exists('TCPDF', false)) {
 			if ($size == 0) {
 				$size = $this->FontSizePt;
 			}
+			$family = 'stsongstdlight';
 			// try to add font (if not already added)
 			$fontdata = $this->AddFont($family, $style, $fontfile);
 			$this->FontFamily = $fontdata['family'];
