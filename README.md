@@ -77,7 +77,7 @@ login.action
 ###expert->index_d.html
 ####weipingshen.html
     weipingshen.action:param:{page,pagenum},return: items[id，项目名称，类型，时间,操作]，itemscount:num
-操作->弹出新标签页；
+操作->弹出新标签页pingshenxiangmu.jsp；
 ####yipingshen.html
     yipingshen.action:param:{page,pagenum},return: items[id，项目名称（url），类型，时间,得分]，itemscount:num
 ####个人信息修改删除掉
