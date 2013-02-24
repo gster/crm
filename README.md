@@ -14,7 +14,7 @@ login.action
       keyanxiangmulist.action:params:page,pagenum
       return:items{id,xiangmumingchen;xiangmuleixing;shenqingshijian;zhuangtai;caozuo},itemscount:num
 
-      修改->xinjiankeyan.html
+      修改->xinjiankeyan.jsp?id=
 
 ####个人信息->gerenxinxi.html
     gerenxinxi_init.action
